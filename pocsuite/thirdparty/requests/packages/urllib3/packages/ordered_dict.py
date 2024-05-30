@@ -194,8 +194,9 @@ class OrderedDict(dict):
         self[key] = default
         return default
 
-    def __repr__(self, _repr_running={}):
+    def __repr__(self, _repr_running=None):
         'od.__repr__() <==> repr(od)'
+        _repr_running = {} if _repr_running is None else _repr_running
         call_key = id(self), _get_ident()
         if call_key in _repr_running:
             return '...'

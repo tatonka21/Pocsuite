@@ -30,7 +30,7 @@ class ZoomEye(object):
             self.token = resp.json().get('access_token')
         return self.token
 
-    def dork_search(self, dork, page=0, resource='web', facet=['ip']):
+    def dork_search(self, dork, page=0, resource='web', facet=None):
         """Search records with ZoomEye dorks.
 
         param: dork
@@ -44,6 +44,7 @@ class ZoomEye(object):
                ex: [app, device]
                A comma-separated list of properties to get summary information
         """
+        facet = ['ip'] if facet is None else facet
         result = []
         if isinstance(facet, (tuple, list)):
             facet = ','.join(facet)

@@ -1580,13 +1580,14 @@ class ArgumentParser(_AttributeHolder, _ActionsContainer):
                  description=None,
                  epilog=None,
                  version=None,
-                 parents=[],
+                 parents=None,
                  formatter_class=HelpFormatter,
                  prefix_chars='-',
                  fromfile_prefix_chars=None,
                  argument_default=None,
                  conflict_handler='error',
                  add_help=True):
+        parents = [] if parents is None else parents
 
         if version is not None:
             import warnings
