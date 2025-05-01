@@ -5,8 +5,7 @@
 Copyright (c) 2014-2016 pocsuite developers (https://seebug.org)
 See the file 'docs/COPYING' for copying permission
 """
-
-import random
+import secrets
 
 
 upperAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -20,7 +19,7 @@ def rand_base(length, bad, chars):
     cset = (set(chars) - set(list(bad)))
     if len(cset) == 0:
         return ""
-    chars = [list(cset)[random.randrange(len(cset))] for i in xrange(length)]
+    chars = [list(cset)[secrets.SystemRandom().randrange(len(cset))] for i in xrange(length)]
     chars = map(str, chars)
     return "".join(chars)
 

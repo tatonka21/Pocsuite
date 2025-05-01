@@ -10,7 +10,6 @@ import re
 import ast
 import codecs
 import string
-import random
 from socket import gethostbyname
 from urlparse import urlsplit
 
@@ -18,6 +17,7 @@ from pocsuite.lib.core.data import logger
 from pocsuite.lib.core.data import conf
 from pocsuite.lib.core.enums import CUSTOM_LOGGING
 from pocsuite.api.request import req
+import secrets
 
 
 def url2ip(url):
@@ -83,7 +83,7 @@ def strToDict(string):
 
 
 def randomStr(length=10, chars=string.ascii_letters + string.digits):
-    return ''.join(random.sample(chars, length))
+    return ''.join(secrets.SystemRandom().sample(chars, length))
 
 
 def resolve_js_redirects(url):
